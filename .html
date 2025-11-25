@@ -9,27 +9,40 @@
         margin-bottom: 10px;
       }
 
-      li button {
-        font-size: 12px;
+      .complete{
+        text-decoration: line-through;
+      }
+
+      li {
+        font-size: 24px;
         margin-left: 20px;
         color: #5e3c3c;
         border-radius: 12px;
+        background-color: transparent;
+        list-style: none;
+      }
+
+      .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
     </style>
   </head>
   <body>
+    <div class="container">
+      <h1>My ToDo List</h1>
 
-    <h1>My ToDo List</h1>
+      <form>
+        <label for="item">Enter a new task:</label>
+        <input type="text" name="item" id="new-task">
+        <button id="create-task-button" type="button">Add Task</button>
+      </form>
 
-    <form>
-      <label for="item">Enter a new item:</label>
-      <input type="text" name="item" id="item">
-      <button>Add item</button>
-    </form>
+      <ul>
 
-    <ul>
-
-    </ul>
+      </ul>
+    </div>
 
     <script>
 
@@ -38,12 +51,23 @@
 //2. Make it so that the function is triggered by the click event listener
 //3. Make it so that the div can be struck through by clicking on it
 //4. Make it so that the div can be unstruck through
-  function addTasks (list){
-
-  }
-  const addButton = document.querySelector("button");
+  
+  
   
   const toDOList = document.querySelector("ul");
+  const createTaskButton = document.getElementById("create-task-button");
+  
+  
+  createTaskButton.addEventListener('click', ()=>{
+    const newTask = document.createElement("li");
+    const inputValue = document.getElementById("new-task").value;
+    newTask.textContent = inputValue;
+    newTask.classList.add("incomplete");
+    toDOList.append(newTask);
+  });
+
+  
+
     </script>
   </body>
 </html>
