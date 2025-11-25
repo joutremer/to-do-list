@@ -66,7 +66,15 @@
     toDOList.append(newTask);
   });
 
-  
+  toDOList.addEventListener("click", function(event){
+    if (event.target.classList.contains("complete")){
+      event.target.classList.replace("complete", "incomplete");
+    }
+    else if (event.target.classList.contains("incomplete")){
+      event.target.classList.replace("incomplete", "complete");
+    }
+    
+  })
 
     </script>
   </body>
